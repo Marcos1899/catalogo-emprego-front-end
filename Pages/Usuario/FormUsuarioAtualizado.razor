@@ -1,0 +1,130 @@
+@page "/usuarios/editar/{id:int}"
+@using Dtos.Usuario
+@inject HttpClient Http
+@inject NavigationManager Navigation
+
+<PageTitle>Editar Usuário</PageTitle>
+
+<h3 class="text-2x1 font-bold text-zinc-900">Editar Candidato</h3>
+
+@if(Usuario is null){
+    <p>Os dados estão carregando...</p>
+}
+else{
+    <EditForm Model="@Usuario" OnValidSubmit="@EditarUsuario">
+        <label class="block mt-4">
+        <span class="text-gray-600"> Nome Completo </span>
+        <InputText @bind-Value="Usuario.NomeCompleto" class="cef-form-input"/>
+        <div class="mt-1 text-sm text-red-500">
+            <ValidationMessage For="() => Usuario.NomeCompleto"></ValidationMessage>
+        </div>
+    </label>
+    <label class="block mt-4">
+        <span class="text-gray-600"> Endereço Completo </span>
+        <InputText @bind-Value="Usuario.EnderecoCompleto" class="cef-form-input"/>
+        <div class="mt-1 text-sm text-red-500">
+            <ValidationMessage For="() => Usuario.EnderecoCompleto"></ValidationMessage>
+        </div>
+    </label>
+    <label class="block mt-4">
+        <span class="text-gray-600"> Login </span>
+        <InputText @bind-Value="Usuario.Login" class="cef-form-input"/>
+        <div class="mt-1 text-sm text-red-500">
+            <ValidationMessage For="() => Usuario.Login"></ValidationMessage>
+        </div>
+    </label><label class="block mt-4">
+        <span class="text-gray-600"> E-mail </span>
+        <InputText @bind-Value="Usuario.Email" class="cef-form-input"/>
+        <div class="mt-1 text-sm text-red-500">
+            <ValidationMessage For="() => Usuario.Email"></ValidationMessage>
+        </div>
+    </label>
+    <label class="block mt-4">
+        <span class="text-gray-600"> Senha </span>
+        <InputText type="password" @bind-Value="Usuario.Senha" class="cef-form-input"/>
+        <div class="mt-1 text-sm text-red-500">
+            <ValidationMessage For="() => Usuario.Senha"></ValidationMessage>
+        </div>
+    </label>
+    <label class="block mt-4">
+        <span class="text-gray-600"> Cpf</span>
+        <InputText @bind-Value="Usuario.Cpf" class="cef-form-input"/>
+        <div class="mt-1 text-sm text-red-500">
+            <ValidationMessage For="() => Usuario.Cpf"></ValidationMessage>
+        </div>
+    </label>
+    <label class="block mt-4">
+        <span class="text-gray-600"> Telefone</span>
+        <InputText @bind-Value="Usuario.Telefone" class="cef-form-input"/>
+        <div class="mt-1 text-sm text-red-500">
+            <ValidationMessage For="() => Usuario.Telefone"></ValidationMessage>
+        </div>
+    </label>
+    <label class="block mt-4">
+        <span class="text-gray-600"> Cidade</span>
+        <InputText @bind-Value="Usuario.Cidade" class="cef-form-input"/>
+        <div class="mt-1 text-sm text-red-500">
+            <ValidationMessage For="() => Usuario.Cidade"></ValidationMessage>
+        </div>
+    </label>
+    <label class="block mt-4">
+        <span class="text-gray-600"> Tipo Usuario </span>
+        <InputText @bind-Value="Usuario.TipoUsuario" class="cef-form-input"/>
+        <div class="mt-1 text-sm text-red-500">
+            <ValidationMessage For="() => Usuario.TipoUsuario"></ValidationMessage>
+        </div>
+    </label>
+    <label class="block mt-4">
+        <span class="text-gray-600"> Carteira de Identidade </span>
+        <InputText @bind-Value="Usuario.Rg" class="cef-form-input"/>
+        <div class="mt-1 text-sm text-red-500">
+            <ValidationMessage For="() => Usuario.Rg"></ValidationMessage>
+        </div>
+    </label>
+     <label class="block mt-4">
+        <span class="text-gray-600"> Formação </span>
+        <InputText @bind-Value="Usuario.Curriculo.Formacao" class="cef-form-input"/>
+        <div class="mt-1 text-sm text-red-500">
+            <ValidationMessage For="() => Usuario.Curriculo.Formacao"></ValidationMessage>
+        </div>
+    </label>
+     <label class="block mt-4">
+        <span class="text-gray-600"> Cursos Complementares </span>
+        <InputText @bind-Value="Usuario.Curriculo.CursosComplementares" class="cef-form-input"/>
+        <div class="mt-1 text-sm text-red-500">
+            <ValidationMessage For="() => Usuario.Curriculo.CursosComplementares"></ValidationMessage>
+        </div>
+    </label>
+     <label class="block mt-4">
+        <span class="text-gray-600"> Experiência Profissional </span>
+        <InputText @bind-Value="Usuario.Curriculo.ExperienciaProfissional" class="cef-form-input"/>
+        <div class="mt-1 text-sm text-red-500">
+            <ValidationMessage For="() => Usuario.Curriculo.ExperienciaProfissional"></ValidationMessage>
+        </div>
+    </label>
+    <button class="cef-button-submit">Salvar</button>
+    <DataAnnotationsValidator/>
+    </EditForm>
+}
+
+@code{
+    [Parameter]
+    public int Id { get; set; }
+
+    public UsuarioCreateUpdateDto Usuario { get; set; }
+
+    @* Buscando os dados da empresa na API *@
+    protected override async Task OnInitializedAsync(){
+       
+       Usuario = await Http.GetFromJsonAsync<UsuarioCreateUpdateDto>($"/usuarios/{Id}"); 
+
+    }
+
+    private async Task EditarUsuario(){
+        //Enviando o usuario via put para a Api
+        await Http.PutAsJsonAsync($"/usuarios/{Id}", Usuario);
+
+        //Navegando para lista de usuarios
+        Navigation.NavigateTo("/candidatos");
+    }
+}

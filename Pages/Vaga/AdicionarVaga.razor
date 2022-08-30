@@ -1,0 +1,53 @@
+@page "/cadastrar/vaga"
+@using Dtos.Vaga
+@inject HttpClient Http
+@inject NavigationManager Navigation
+
+<PageTitle>Adicionando Nova Vaga</PageTitle>
+
+<h3 class="text-2x1 font-bold text-zinc-900">Adicionar Vaga</h3>
+
+<EditForm Model="@Vaga" OnValidSubmit="@CriarVaga">
+    <label class="block mt-4">
+        <span class="text-gray-600"> Tipo da Vaga </span>
+        <InputText @bind-Value="Vaga.TipoVaga" class="cef-form-input"/>
+        <div class="mt-1 text-sm text-red-500">
+            <ValidationMessage For="() => Vaga.TipoVaga"></ValidationMessage>
+        </div>
+    </label>
+    <label class="block mt-4">
+        <span class="text-gray-600"> Número de Vagas </span>
+        <InputNumber @bind-Value="Vaga.NumeroVagas" class="cef-form-input"/>
+        <div class="mt-1 text-sm text-red-500">
+            <ValidationMessage For="() => Vaga.NumeroVagas"></ValidationMessage>
+        </div>
+    </label>
+    <label class="block mt-4">
+        <span class="text-gray-600"> Salário </span>
+        <InputText @bind-Value="Vaga.Salario" class="cef-form-input"/>
+        <div class="mt-1 text-sm text-red-500">
+            <ValidationMessage For="() => Vaga.Salario"></ValidationMessage>
+        </div>
+    </label>
+    <label class="block mt-4">
+        <span class="text-gray-600"> Especificações </span>
+        <InputText @bind-Value="Vaga.Especificacoes" class="cef-form-input"/>
+        <div class="mt-1 text-sm text-red-500">
+            <ValidationMessage For="() => Vaga.Especificacoes"></ValidationMessage>
+        </div>
+    </label>
+    <button class="cef-button-submit">Salvar</button>
+    <DataAnnotationsValidator/>
+
+</EditForm>
+
+@code{
+    public VagaCreateUpdateDto Vaga { get; set; } = new();
+
+      private async Task CriarVaga()
+    {
+        @*Onde a requisição para a API salvar a vaga*@
+        await Http.PostAsJsonAsync("/vagas", Vaga);
+        Navigation.NavigateTo("/vagas");
+    }
+}

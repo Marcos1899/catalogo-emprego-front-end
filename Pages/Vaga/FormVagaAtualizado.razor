@@ -1,0 +1,69 @@
+@page "/vagas/editar/{id:int}"
+@using Dtos.Vaga
+@inject HttpClient Http
+@inject NavigationManager Navigation
+
+<PageTitle>Editar Vagas</PageTitle>
+
+<h3 class="text-2x1 font-bold text-zinc-900">Editando Vagas</h3>
+
+@if(Vaga is null){
+    <p>Os dados estão carregando...</p>
+}
+else{
+    <EditForm Model="@Vaga" OnValidSubmit="@EditarVaga">
+         <label class="block mt-4">
+        <span class="text-gray-600"> Tipo da Vaga </span>
+        <InputText @bind-Value="Vaga.TipoVaga" class="cef-form-input"/>
+        <div class="mt-1 text-sm text-red-500">
+            <ValidationMessage For="() => Vaga.TipoVaga"></ValidationMessage>
+        </div>
+    </label>
+    <label class="block mt-4">
+        <span class="text-gray-600"> Número de Vagas </span>
+        <InputNumber @bind-Value="Vaga.NumeroVagas" class="cef-form-input"/>
+        <div class="mt-1 text-sm text-red-500">
+            <ValidationMessage For="() => Vaga.NumeroVagas"></ValidationMessage>
+        </div>
+    </label>
+    <label class="block mt-4">
+        <span class="text-gray-600"> Salário </span>
+        <InputText @bind-Value="Vaga.Salario" class="cef-form-input"/>
+        <div class="mt-1 text-sm text-red-500">
+            <ValidationMessage For="() => Vaga.Salario"></ValidationMessage>
+        </div>
+    </label>
+    <label class="block mt-4">
+        <span class="text-gray-600"> Especificações </span>
+        <InputText @bind-Value="Vaga.Especificacoes" class="cef-form-input"/>
+        <div class="mt-1 text-sm text-red-500">
+            <ValidationMessage For="() => Vaga.Especificacoes"></ValidationMessage>
+        </div>
+    </label>
+    <button class="cef-button-submit">Salvar</button>
+    <DataAnnotationsValidator/>
+
+    </EditForm>
+}
+
+@code
+{
+  [Parameter]
+  public int Id { get; set; }
+
+  public VagaCreateUpdateDto Vaga { get; set; }
+
+      @* Buscando os dados da empresa na API *@
+    protected override async Task OnInitializedAsync(){
+       
+       Vaga = await Http.GetFromJsonAsync<VagaCreateUpdateDto>($"/vagas/{Id}"); 
+
+    }
+    private async Task EditarVaga(){
+        //Enviando o usuario via put para a Api
+        await Http.PutAsJsonAsync($"/vagas/{Id}", Vaga);
+
+        //Navegando para lista de usuarios
+        Navigation.NavigateTo("/vagas");
+    }
+}

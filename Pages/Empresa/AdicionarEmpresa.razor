@@ -1,0 +1,91 @@
+@page "/empresa/adicionar"
+@inject HttpClient Http
+@inject NavigationManager Navigation
+@using Dtos.Empresa
+
+<PageTitle>Adicionando Nova Empresa</PageTitle>
+
+<h3 class="text-2x1 font-bold text-zinc-900">Adicionar Empresa</h3>
+
+<EditForm Model="@Empresa" OnValidSubmit="@CriarEmpresa">
+    <label class="block mt-4">
+        <span class="text-gray-600"> Razão Social </span>
+        <InputText @bind-Value="Empresa.RazaoSocial" class="cef-form-input"/>
+        <div class="mt-1 text-sm text-red-500">
+            <ValidationMessage For="() => Empresa.RazaoSocial"></ValidationMessage>
+        </div>
+    </label>
+    <label class="block mt-4">
+        <span class="text-gray-600"> Nome Fantasia </span>
+        <InputText @bind-Value="Empresa.NomeFantasia" class="cef-form-input"/>
+        <div class="mt-1 text-sm text-red-500">
+            <ValidationMessage For="() => Empresa.NomeFantasia"></ValidationMessage>
+        </div>
+    </label>
+    <label class="block mt-4">
+        <span class="text-gray-600"> Cnpj </span>
+        <InputText @bind-Value="Empresa.Cnpj" class="cef-form-input"/>
+        <div class="mt-1 text-sm text-red-500">
+            <ValidationMessage For="() => Empresa.Cnpj"></ValidationMessage>
+        </div>
+    </label>
+    <label class="block mt-4">
+        <span class="text-gray-600"> Cidade </span>
+        <InputText @bind-Value="Empresa.Cidade" class="cef-form-input"/>
+        <div class="mt-1 text-sm text-red-500">
+            <ValidationMessage For="() => Empresa.Cidade"></ValidationMessage>
+        </div>
+    </label>
+    <label class="block mt-4">
+        <span class="text-gray-600"> Estado </span>
+        <InputText @bind-Value="Empresa.Estado" class="cef-form-input"/>
+        <div class="mt-1 text-sm text-red-500">
+            <ValidationMessage For="() => Empresa.Estado"></ValidationMessage>
+        </div>
+    </label>
+    <label class="block mt-4">
+        <span class="text-gray-600"> Endereço </span>
+        <InputTextArea @bind-Value="Empresa.Endereco" class="cef-form-input"/>
+        <div class="mt-1 text-sm text-red-500">
+            <ValidationMessage For="() => Empresa.Endereco"></ValidationMessage>
+        </div>
+    </label>
+    <label class="block mt-4">
+        <span class="text-gray-600"> Telefone </span>
+        <InputText @bind-Value="Empresa.Telefone" class="cef-form-input"/>
+        <div class="mt-1 text-sm text-red-500">
+            <ValidationMessage For="() => Empresa.Telefone"></ValidationMessage>
+        </div>
+    </label>
+    <label class="block mt-4">
+        <span class="text-gray-600"> Email </span>
+        <InputText @bind-Value="Empresa.Email" class="cef-form-input"/>
+        <div class="mt-1 text-sm text-red-500">
+            <ValidationMessage For="() => Empresa.Email"></ValidationMessage>
+        </div>
+    </label>
+    <label class="block mt-4">
+        <span class="text-gray-600"> Senha </span>
+        <InputText type="password" @bind-Value="Empresa.Senha" class="cef-form-input"/>
+        <div class="mt-1 text-sm text-red-500">
+            <ValidationMessage For="() => Empresa.Senha"></ValidationMessage>
+        </div>
+    </label>
+
+    <button class="cef-button-submit">Salvar</button>
+
+    @*Parte onde será feito validações usando anotações *@
+    <DataAnnotationsValidator/>
+
+</EditForm>
+
+@code{
+    public EmpresaCreateUpdateDto Empresa { get; set; } = new();
+
+    private async Task CriarEmpresa()
+    {
+        @*Onde a requisição para a API salvar a empresa*@
+        await Http.PostAsJsonAsync("/empresas", Empresa);
+        Navigation.NavigateTo("/empresas");
+    }
+}
