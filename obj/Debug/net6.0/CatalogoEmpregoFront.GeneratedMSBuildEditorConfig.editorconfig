@@ -11,65 +11,65 @@ build_property.EnableTrimAnalyzer = true
 build_property.IncludeAllContentForSelfExtract = 
 build_property.RootNamespace = CatalogoEmpregoFront
 build_property.RootNamespace = CatalogoEmpregoFront
-build_property.ProjectDir = C:\Users\marco\EmpregoCatalogo\CatalogoEmpregoFront\
+build_property.ProjectDir = c:\Users\marco\EmpregoCatalogo\CatalogoEmpregoFront\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\marco\EmpregoCatalogo\CatalogoEmpregoFront
+build_property.MSBuildProjectDirectory = c:\Users\marco\EmpregoCatalogo\CatalogoEmpregoFront
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/marco/EmpregoCatalogo/CatalogoEmpregoFront/App.razor]
+[c:/Users/marco/EmpregoCatalogo/CatalogoEmpregoFront/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marco/EmpregoCatalogo/CatalogoEmpregoFront/Pages/Empresa/AdicionarEmpresa.razor]
+[c:/Users/marco/EmpregoCatalogo/CatalogoEmpregoFront/Pages/Empresa/AdicionarEmpresa.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW1wcmVzYVxBZGljaW9uYXJFbXByZXNhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marco/EmpregoCatalogo/CatalogoEmpregoFront/Pages/Empresa/EmpresaIndex.razor]
+[c:/Users/marco/EmpregoCatalogo/CatalogoEmpregoFront/Pages/Empresa/EmpresaIndex.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW1wcmVzYVxFbXByZXNhSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marco/EmpregoCatalogo/CatalogoEmpregoFront/Pages/Empresa/FormEmpresaAtualizado.razor]
+[c:/Users/marco/EmpregoCatalogo/CatalogoEmpregoFront/Pages/Empresa/FormEmpresaAtualizado.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW1wcmVzYVxGb3JtRW1wcmVzYUF0dWFsaXphZG8ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marco/EmpregoCatalogo/CatalogoEmpregoFront/Pages/Home.razor]
+[c:/Users/marco/EmpregoCatalogo/CatalogoEmpregoFront/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marco/EmpregoCatalogo/CatalogoEmpregoFront/Pages/Usuario/AdicionarCandidato.razor]
+[c:/Users/marco/EmpregoCatalogo/CatalogoEmpregoFront/Pages/Usuario/AdicionarCandidato.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXN1YXJpb1xBZGljaW9uYXJDYW5kaWRhdG8ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marco/EmpregoCatalogo/CatalogoEmpregoFront/Pages/Usuario/CandidatoIndex.razor]
+[c:/Users/marco/EmpregoCatalogo/CatalogoEmpregoFront/Pages/Usuario/CandidatoIndex.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXN1YXJpb1xDYW5kaWRhdG9JbmRleC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marco/EmpregoCatalogo/CatalogoEmpregoFront/Pages/Usuario/FormUsuarioAtualizado.razor]
+[c:/Users/marco/EmpregoCatalogo/CatalogoEmpregoFront/Pages/Usuario/FormUsuarioAtualizado.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXN1YXJpb1xGb3JtVXN1YXJpb0F0dWFsaXphZG8ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marco/EmpregoCatalogo/CatalogoEmpregoFront/Pages/Vaga/AdicionarVaga.razor]
+[c:/Users/marco/EmpregoCatalogo/CatalogoEmpregoFront/Pages/Vaga/AdicionarVaga.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmFnYVxBZGljaW9uYXJWYWdhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marco/EmpregoCatalogo/CatalogoEmpregoFront/Pages/Vaga/FormVagaAtualizado.razor]
+[c:/Users/marco/EmpregoCatalogo/CatalogoEmpregoFront/Pages/Vaga/FormVagaAtualizado.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmFnYVxGb3JtVmFnYUF0dWFsaXphZG8ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marco/EmpregoCatalogo/CatalogoEmpregoFront/Pages/Vaga/VagaIndex.razor]
+[c:/Users/marco/EmpregoCatalogo/CatalogoEmpregoFront/Pages/Vaga/VagaIndex.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmFnYVxWYWdhSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marco/EmpregoCatalogo/CatalogoEmpregoFront/Shared/MainLayout.razor]
+[c:/Users/marco/EmpregoCatalogo/CatalogoEmpregoFront/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marco/EmpregoCatalogo/CatalogoEmpregoFront/Shared/MenuLateral.razor]
+[c:/Users/marco/EmpregoCatalogo/CatalogoEmpregoFront/Shared/MenuLateral.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1lbnVMYXRlcmFsLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/marco/EmpregoCatalogo/CatalogoEmpregoFront/_Imports.razor]
+[c:/Users/marco/EmpregoCatalogo/CatalogoEmpregoFront/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
